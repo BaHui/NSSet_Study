@@ -8,10 +8,11 @@
 >  * **NSMutableOrderedSet:  有序可变集合** 
 
 ### 使用场景
-> 用法与`NSArray`相似,  但是若是需要保证操作的集体数据中, 相同的`对象`只存在一份,  我们一般采用集合进行数据源的操作, 集合又分为无序集合**(`NSSet` | `NSMutableSet`) 和 有序集合 (`NSOrderedSet` | `NSMutableOrderedSet`)**.  下面我们来了解一些集合的简单用法;
+> 用法与`NSArray`相似,  但是若是需要保证操作的集体数据中, 相同的`对象`只存在一份,  我们一般采用集合进行数据源的操作, 集合又分为无序集合 **(`NSSet` | `NSMutableSet`) 和 有序集合 (`NSOrderedSet` | `NSMutableOrderedSet`)**.  下面我们来了解一些集合的简单用法;
 
 ### 使用示例
-```
+
+```objectivec
 // 我们先来验证下NSSet或NSMutableSet集合是有序还是无序的; 结论: 是无序的!
 - (void)testMethodForSetOrderStatus {
 NSMutableSet *mutableSetOrder = [NSMutableSet new];
@@ -28,6 +29,7 @@ NSLog(@"mutableSetOrderStatus: %@", mutableSetOrder);
 )} */
 }
 ```
+
 ```objectivec
 // 向集合中加入相同的元素, 集合会自动过滤掉重复的元素.
 - (void)testMethodForSetOfString {
@@ -54,6 +56,7 @@ NSLog(@"mutableSetsetNotEqualString: %@", mutableSetsetNotEqualString);
 )} */
 }
 ```
+
 ```objectivec
 // BHPerson是继承与NSObject的类, 因为即使属性都是相同的, 但内存地址不一样. 所以会同时存在于集合
 - (void)testMethodForSetOfPerson {
@@ -72,6 +75,7 @@ NSLog(@"mutableSetPerson: %@", mutableSetPerson);
 )} */
 }
 ```
+
 ```objectivec
 // BHOverwritePerson是一个继承NSObject的类, 但是对其isEqual方法进行了重写, 若名字(name属性值)是一样的,则认为是同一个对象, 所以集中只会存在一份; 
 - (void)testMethodForOfOverwritePerson {
@@ -89,7 +93,7 @@ NSLog(@"mutableSetOverwritePerson: %@", mutableSetOverwritePerson);
 )} */
 }
 ```
-```
+```objectivec
 // 将一个数组转化为NSMutableSet, 此时, 将会由有序的数组变为无序的NSMutableSet
 - (void)testMethodForSetFromArray {
 NSArray *strigns = @[@"1", @"2", @"3", @"1"];
@@ -102,6 +106,7 @@ NSLog(@"setFormArray: %@", setFormArray);
 )} */
 }
 ```
+
 ```objectivec
 // 对NSSet进行排序, 返回一个数组(数组是有序的)
 - (void)testMethodForOrderbySet {
@@ -212,6 +217,7 @@ NSLog(@"orderbyMutableOrderedSet: %@", mutableOrderedSet);
 )} */
 }
 ```
+
 ### 交流与建议
 - GitHub：<https://github.com/BaHui>
 - 邮&nbsp;&nbsp;&nbsp; 箱：<qiaobahuiyouxiang@163.com>
