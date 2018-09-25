@@ -229,7 +229,7 @@ static NSString *const DEMO_VIEWS_STORYBOARD_NAME = @"DemoViews";
 	[mutableOrderedSet addObject:@"4"];
 
 	NSLog(@"mutableOrderedSet: %@", mutableOrderedSet);
-	/* 输出: 移除所有元素后: {(
+	/* 输出: mutableOrderedSet: {(
 	 1,
 	 2,
 	 3,
