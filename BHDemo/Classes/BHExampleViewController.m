@@ -53,6 +53,9 @@ static NSString *const DEMO_VIEWS_STORYBOARD_NAME = @"DemoViews";
 	// 对set元素增加或者删除
 	[self testMethodForAddAndRemoveObject];
 
+	// 判断是否有交集 / 是否为子集
+	[self testMethodForHasIntersection];
+
 	// *************** 有序集合 ***************
 
 	/* 有序集合
@@ -188,6 +191,31 @@ static NSString *const DEMO_VIEWS_STORYBOARD_NAME = @"DemoViews";
 	[set removeAllObjects];
 	NSLog(@"移除所有元素后: %@", set);
 	/* 输出: 移除所有元素后: {(
+	 )} */
+}
+
+- (void)testMethodForHasIntersection {
+	NSMutableSet *set1 = [NSMutableSet setWithObjects:@"1", @"2", @"3", @"4", nil, nil];
+	NSMutableSet *set2 = [NSMutableSet setWithObjects:@"1", @"2", nil];
+
+	// 判断是否有交集;
+	BOOL hasIntersection = [set1 intersectsSet:set2];
+	NSLog(@"set1和set2是否有交集: %@", hasIntersection ? @"有" : @"无"); // 输出: set1和set2是否有交集: 有
+
+	// 判断set2是否是set1的子集;
+	BOOL isSubsetOfSet1 = [set2 isSubsetOfSet:set1];
+	NSLog(@"set2是否是set1的子集: %@", isSubsetOfSet1 ? @"是" : @"否"); // 输出: set2是否是set1的子集: 是
+
+	// 判断set2是否是set2的子集;
+	BOOL isSubsetOfSet2 = [set2 isSubsetOfSet:set2];
+	NSLog(@"set2是否是set2的子集: %@", isSubsetOfSet2 ? @"是" : @"否"); // 输出: set2是否是set2的子集: 是
+
+	// 获取set1 和 set2 交集
+	[set1 intersectSet:set2];
+	NSLog(@"交集: %@", set1);
+	/* 输出:交集: {(
+	 1,
+	 2
 	 )} */
 }
 
